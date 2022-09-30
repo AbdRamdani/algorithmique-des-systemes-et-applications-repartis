@@ -1,0 +1,29 @@
+package intiro;
+
+public class P3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			DatagramSocket s
+			//udp server 
+			 s = new DatagramSocket(9876);
+			byte[] receiveData = new byte[10];
+
+			//creation de packet
+			DatagramPacket p = new DatagramPacket(receiveData, receiveData.length);
+			System.out.println("serveur wait ...");
+			s.receive(p);
+
+			String ch = new String(p.getData());
+			//N= Integer.parseInt(ch.trim());
+			
+			//rmi client 
+			
+		}catch(Exception e ) {
+			System.out.println("erreur P1 : "+e.toString());
+		}
+
+	}
+
+}

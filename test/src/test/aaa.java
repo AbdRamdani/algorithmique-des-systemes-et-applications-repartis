@@ -1,0 +1,60 @@
+package test;
+
+public class aaa {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+
+String R="";
+String n ="ABABABABABABABABABABABABABABABABABAB";
+
+char temp ;
+ int a=1;
+temp=n.charAt(0);
+	for(int i=1;i<n.length();i++){
+		
+		if(temp==n.charAt(i)){a++;} 
+		else{
+			if(a<3){
+				for(int j=1;j<a+1;j++){
+					R+=temp;
+					
+				
+					} a=1;  temp=n.charAt(i);}
+			else{
+				R+="#";
+				R+=a;
+				R+=temp;a=1;temp=n.charAt(i);
+
+			}}
+		if(i==n.length()-1) {
+			R=R+temp;
+		}
+		}
+
+		if(a>1){if(a<3){
+				for(int j=1;j<a+1;j++){
+					R+=temp;
+					
+				
+					}}
+		 
+			else{
+				R+="#";
+				R+=a;
+				R+=temp;
+
+			}
+				
+
+			}
+		System.out.println(R);
+		System.out.println("le taux : "+(((float)R.length()/(float)n.length()))*100);
+		
+	
+
+	}
+
+}

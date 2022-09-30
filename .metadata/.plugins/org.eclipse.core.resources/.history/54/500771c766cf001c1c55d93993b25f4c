@@ -1,0 +1,5 @@
+package intiro;
+
+public interface IntP1 {
+
+}

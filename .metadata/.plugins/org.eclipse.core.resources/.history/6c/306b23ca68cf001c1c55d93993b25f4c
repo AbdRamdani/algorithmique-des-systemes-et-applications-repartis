@@ -1,0 +1,51 @@
+package intiro;
+
+import java.io.ObjectInputStream;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class P2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			ServerSocket serv;
+			Socket connexion;
+			ObjectInputStream in;
+			int N ,S1; 
+			
+			DatagramSocket s;
+			InetAddress ip = InetAddress.getByName("localhost");
+			DatagramPacket p;
+			byte [] sendData;
+			String ch; 
+			//tcp server 
+			serv=new ServerSocket(2005);
+			connexion=serv.accept(); 
+			in = new ObjectInputStream(connexion.getInputStream());
+			N=Integer.parseInt((String)in.readObject());
+			S1=N*2; 
+			
+			
+			//udp client 
+			s= new DatagramSocket();
+			
+			byte [] sendData = new byte[10];
+			String ch = "rsd";
+			sendData=ch.getBytes();
+			//data=(Integer.toString(N)).getBytes();
+	
+			p  = new DatagramPacket(sendData, sendData.length,ip,9876);
+			s.send(p);
+
+			
+		}catch(Exception e ) {
+			System.out.println("erreur P1 : "+e.toString());
+		}
+
+	}
+
+}

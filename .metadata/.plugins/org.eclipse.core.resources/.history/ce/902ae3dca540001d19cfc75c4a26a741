@@ -1,0 +1,56 @@
+package exoProf;
+
+import java.io.ObjectInputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import exo.IntP;
+
+public class P2 extends java.rmi.server.UnicastRemoteObject implements IntP2 {
+
+	public P2() throws Exception {
+		System.out.println("Creation de P2");
+		
+	}
+	
+	public void ReceiveN(int n) throws Exception {
+		System.out.println("valeur recu par p1 : "+n);
+		int S1=n*2;
+		//devient client pour envoyé a p3
+		Registry r = LocateRegistry.getRegistry("localhost",1100);
+		IntP3 ip3 =(IntP3) r.lookup("refP3");
+		ip3.ReceiveN(S1);
+		
+		System.out.println("valeur envoyé a p3 "+S1);
+		
+		
+		//il devient server 
+		Socket connexion ; 
+		ServerSocket serv;
+		serv=new ServerSocket(2006);
+		System.out.println("server p2 ...");
+		connexion=serv.accept(); 
+		ObjectInputStream in = new ObjectInputStream(connexion.getInputStream());
+		int S3=Integer.parseInt((String)in.readObject());
+		System.out.println("la valeur recu a P2 par P4 est "+S3);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			P2 p = new P2();
+			Registry reg = LocateRegistry.createRegistry(1099);
+			reg.rebind("refP2", p);	
+		}
+		catch(Exception e) {
+			System.out.println("erreur p1: "+e.toString());
+		}
+
+	}
+
+
+
+}

@@ -1,0 +1,15 @@
+package rmi;
+import java.rmi.registry.LocateRegistry;
+
+
+
+public class P2  java.rmi.server.UnicastRemoteObject implements IntP2  {
+
+	public P2() throws Exception {System.out.println("Lancement de Server Rmi ....");}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

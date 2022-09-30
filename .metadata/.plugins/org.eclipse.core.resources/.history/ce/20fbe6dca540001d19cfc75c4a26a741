@@ -1,0 +1,40 @@
+package exoProf;
+
+import java.io.ObjectOutputStream;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.Socket;
+
+public class P4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			//server 
+			DatagramSocket s2 = new DatagramSocket(2005);
+			byte[] data = new byte[4];
+			DatagramPacket p2 = new DatagramPacket(data, data.length);
+			System.out.println("server p4  ...");
+			s2.receive(p2);
+			
+			// a la reception de packet
+			String ch=new String(p2.getData());
+			int S2= Integer.parseInt(ch.trim());
+			System.out.println("valeur S2 recu par p3 est "+S2);
+			S2=S2*4;
+			
+			//client 
+			ObjectOutputStream out; 
+			Socket c = new Socket("localhost",2006);//p4 udp port 
+			out = new ObjectOutputStream(c.getOutputStream());
+			out.writeObject(Integer.toString(S2));
+			System.out.println("fin envoie S2 "+S2+" a P1");
+			
+		}
+		catch(Exception e) {
+			System.out.println("erreur p1: "+e.toString());
+		}
+
+	}
+
+}

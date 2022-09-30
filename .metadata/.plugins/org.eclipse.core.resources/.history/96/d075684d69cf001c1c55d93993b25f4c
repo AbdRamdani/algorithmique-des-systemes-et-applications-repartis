@@ -1,0 +1,19 @@
+package intiro;
+
+public class P3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			//udp server 
+			
+			
+			//rmi client 
+			
+		}catch(Exception e ) {
+			System.out.println("erreur P1 : "+e.toString());
+		}
+
+	}
+
+}

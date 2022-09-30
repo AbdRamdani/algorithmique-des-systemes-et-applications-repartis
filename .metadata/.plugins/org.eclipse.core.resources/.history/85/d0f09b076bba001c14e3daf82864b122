@@ -1,0 +1,22 @@
+package exo;
+
+public class P3 implements IntP {
+
+	@Override
+	public void receiveMessage(int n) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int Calculer(int a, int b) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

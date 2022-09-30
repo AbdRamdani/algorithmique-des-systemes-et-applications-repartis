@@ -1,0 +1,13 @@
+package rmi;
+import java.rmi.registry.LocateRegistry;
+
+import projetRMI.IntP2;
+
+public class P2  java.rmi.server.UnicastRemoteObject implements IntP2  {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,26 @@
+package exo;
+
+public class P2 extends java.rmi.server.UnicastRemoteObject implements IntP {
+	
+	static int S2;
+	public P2() throws Exception {
+		System.out.println("Lancement de Server P2 ....");}
+
+	@Override
+	public void receiveMessage(int n) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int Calculer(int a, int b) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

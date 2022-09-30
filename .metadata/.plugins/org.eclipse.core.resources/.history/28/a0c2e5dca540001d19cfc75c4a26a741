@@ -1,0 +1,47 @@
+package exoProf;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+public class P3 extends java.rmi.server.UnicastRemoteObject implements IntP3 {
+	
+	public P3() throws Exception  {
+		System.out.println("Creation de P3");
+	}
+	
+	public void ReceiveN(int n) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("valeur recu par p2 est :"+n);
+		int S2=n*3;
+		
+		//envoye a p4 udp
+		DatagramSocket s = new DatagramSocket();
+		byte[] data = new byte[4];
+		data=(Integer.toString(S2)).getBytes();
+		InetAddress ipadr = InetAddress.getByName("localhost");
+		DatagramPacket p4= new DatagramPacket(data, data.length,ipadr,2005);
+		s.send(p4);
+		System.out.println("valeur S2 envoye a p4 est "+S2);
+	 
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			P3 p = new P3();
+			Registry reg = LocateRegistry.createRegistry(1100);
+			reg.rebind("refP3", p);	
+		}
+		catch(Exception e) {
+			System.out.println("erreur p1: "+e.toString());
+		}
+
+	}
+
+	
+
+
+}

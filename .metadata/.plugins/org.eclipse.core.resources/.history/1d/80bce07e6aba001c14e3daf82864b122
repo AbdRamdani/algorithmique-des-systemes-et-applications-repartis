@@ -1,0 +1,8 @@
+package exo;
+
+import java.rmi.Remote;
+
+public interface IntP extends Remote{
+	public void receiveMessage(int n) throws Exception;
+	public int Calculer(int a, int b) throws Exception;	
+}

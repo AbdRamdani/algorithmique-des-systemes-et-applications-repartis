@@ -1,0 +1,15 @@
+package rmi;
+
+public class P1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			
+		}
+		catch(Exception e ) {
+			System.out.println("erreur p1 : "+e.toString());
+		}
+	}
+
+}

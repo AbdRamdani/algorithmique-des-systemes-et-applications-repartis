@@ -1,0 +1,29 @@
+package exoProf;
+
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.util.Scanner;
+
+public class P1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			System.out.println("donner un valeur : ");
+			Scanner sc = new Scanner(System.in);
+			int N = sc.nextInt();
+			
+			Registry r = LocateRegistry.getRegistry("localhost",1099);
+			IntP2 ip2 =(IntP2) r.lookup("refP2");
+			ip2.ReceiveN(N);
+			System.out.println("valeur envoyé  a p2 eset : "+N);
+			
+			
+		}
+		catch(Exception e) {
+			System.out.println("erreur p1: "+e.toString());
+		}
+
+	}
+
+}

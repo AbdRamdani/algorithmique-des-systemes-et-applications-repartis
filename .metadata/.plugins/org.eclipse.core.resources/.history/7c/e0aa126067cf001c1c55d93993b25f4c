@@ -1,0 +1,34 @@
+package intiro;
+
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import exoProf.P2;
+
+public class P1 extends java.rmi.server.UnicastRemoteObject implements IntP1{
+	
+	protected P1() throws Exception {
+		System.out.println("creation de server RMI P1");
+			}
+
+	@Override
+	public void ReceiveN(int S1, int N) throws Exception {
+		int S2 = S1*3+N; 
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			P1 p = new P1();
+			Registry reg = LocateRegistry.createRegistry(2004);
+			reg.rebind("refP2", p);	
+		}
+		catch(Exception e) {
+			System.out.println("erreur p1: "+e.toString());
+		}
+
+	}
+
+}

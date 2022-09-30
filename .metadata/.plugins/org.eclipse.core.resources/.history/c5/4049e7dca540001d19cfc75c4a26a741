@@ -1,0 +1,7 @@
+package exoProf;
+
+import java.rmi.Remote;
+
+public interface IntP2  extends Remote{
+	void ReceiveN(int n ) throws Exception  ;
+}

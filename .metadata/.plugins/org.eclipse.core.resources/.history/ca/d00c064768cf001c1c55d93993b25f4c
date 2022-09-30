@@ -1,0 +1,27 @@
+package intiro;
+
+public class P2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			ServerSocket serv;
+			Socket connexion;
+			ObjectInputStream in;
+			int N ,S1; 
+			//tcp server 
+			serv=new ServerSocket(2004);
+			connexion=serv.accept(); 
+			in = new ObjectInputStream(connexion.getInputStream());
+			N=Integer.parseInt((String)in.readObject());
+			
+			
+			//udp client 
+			
+		}catch(Exception e ) {
+			System.out.println("erreur P1 : "+e.toString());
+		}
+
+	}
+
+}

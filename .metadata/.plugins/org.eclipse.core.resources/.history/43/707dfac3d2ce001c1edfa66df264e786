@@ -1,0 +1,10 @@
+package rmi;
+
+public class P2 implements intP2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

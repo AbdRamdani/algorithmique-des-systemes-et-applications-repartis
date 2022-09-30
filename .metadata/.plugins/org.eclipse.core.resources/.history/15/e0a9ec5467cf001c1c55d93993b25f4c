@@ -1,0 +1,22 @@
+package intiro;
+
+import java.rmi.RemoteException;
+
+public class P1 extends java.rmi.server.UnicastRemoteObject implements IntP1{
+	
+	protected P1() throws Exception {
+		System.out.println("creation de server RMI P1");
+			}
+
+	@Override
+	public void ReceiveN(int S1, int N) throws Exception {
+		int S2 = S1*3+N; 
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

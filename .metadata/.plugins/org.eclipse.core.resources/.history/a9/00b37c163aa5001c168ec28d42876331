@@ -1,0 +1,45 @@
+
+public class tp2 {
+	
+	static void remplir(String[] table) {
+		char asci;
+		for(int i=0;i<256;i++) {
+			asci=(char)i;
+			table[i]= Character.toString((char)i) ;
+			//table[i]=(String)i;
+		}			
+	}
+	static int chercheChaine(String a, String[] table) {
+		System.out.println(table.length);
+		for(int i=0;i<table.length;i++) {
+			if(a.equals(table[i])==true) return i ; 
+		}
+
+		
+		return -1;
+	}
+
+	static void insertDict(String a , String[] table) {
+		for(int i =0; i<table.length;i++)
+			System.out.println("&");
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String[] table = new String[1000];
+		table[0]="a";
+		remplir(table);
+		System.out.println(table[0]);
+		System.out.println(table[65]);
+		System.out.println(table.length);
+		System.out.println(chercheChaine("a", table));
+		System.out.println("zoml");
+	//	System.out.println(table[999].equals("null"));
+		System.out.println(isArrayEmpty(table[999]));
+		
+		
+		
+		
+
+	}
+
+}

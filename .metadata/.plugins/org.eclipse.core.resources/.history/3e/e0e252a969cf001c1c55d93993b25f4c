@@ -1,0 +1,46 @@
+package intiro;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+
+public class P3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			DatagramSocket s;
+			byte[] receiveData ;
+			DatagramPacket p;
+			int N , S1,S2 ; 
+			String ch;
+			//udp server 
+			
+
+			//creation de packet
+			s = new DatagramSocket(2006);
+			receiveData = new byte[10];
+			//N
+			p = new DatagramPacket(receiveData, receiveData.length);
+			System.out.println("serveur wait ...");
+			s.receive(p);
+
+			ch = new String(p.getData());
+			N= Integer.parseInt(ch.trim());
+			
+			//S1
+			p = new DatagramPacket(receiveData, receiveData.length);
+			System.out.println("serveur wait ...");
+			s.receive(p);
+
+			ch = new String(p.getData());
+			S1= Integer.parseInt(ch.trim());
+			
+			//rmi client 
+			
+		}catch(Exception e ) {
+			System.out.println("erreur P1 : "+e.toString());
+		}
+
+	}
+
+}

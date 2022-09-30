@@ -1,0 +1,21 @@
+package rmi;
+
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
+import projetRMI.IntP2;
+
+public class P1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			Registry reg = LocateRegistry.getRegistry("localhost", 1099);
+			intP2 r = (intP2) reg.lookup("Refs");
+		}
+		catch(Exception e ) {
+			System.out.println("erreur p1 : "+e.toString());
+		}
+	}
+
+}
